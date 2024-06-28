@@ -1,0 +1,212 @@
+
+<script>
+    // Add an entry to the browser's history
+    var variable = "{{token}}"
+    if (variable!=""){
+    window.history.pushState(null, '', window.location.href);
+
+    // window.onpopstate = () => setTimeout(alert.bind(window, "Pop"), 0);
+
+
+        // Listen for the back button click event
+        window.addEventListener('popstate', function(event) {
+            // Redirect the user to the page before the update page
+            window.location.href = '/quest/' + variable + '/';
+            // window.location.href = '/showQuests/';
+
+    });
+
+}
+document.addEventListener('DOMContentLoaded', function() {
+    const confettiContainer = document.querySelector('.confetti-container');
+    const numConfetti = 100; // Adjust number of confetti elements as needed
+
+    for (let i = 0; i < numConfetti; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = `${Math.random() * 100}%`;
+        confetti.style.animationDelay = `${Math.random() * 5}s`;
+        confettiContainer.appendChild(confetti);
+    }
+});
+// }
+        // window.onpageshow = function(event) {
+        //     // Check if the page is loaded from the bfcache (back-forward cache)
+        //     if (event.persisted) {
+        //         // Reload the page
+        //         window.location.reload(true);
+        //     }
+        // };
+
+
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% load static %}
+    <link href="{% static 'app1/field.css' %}" rel="stylesheet">
+    <link href="{% static 'app1/scene.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'app1/1542766.png' %}"/>
+    <!-- <link href="{% static 'app1/style.css' %}" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?familt=Josefin+Sans:ital,wght@0,100:0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Hint</title>
+</head>
+<style>
+    .flag{
+    width: 20%;
+    background:#191919;
+    border-radius: 20px;
+    border: 2px solid #f9004d;
+    min-height:5vh;
+    color:white;
+    margin-top: 25px;
+    /* padding-left: 10px; */
+    font-size: 25px;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding:10px;
+    margin-left: 40%;
+}
+
+    .pic{
+        max-height: 35vh;
+        border-radius: 20px;
+    border: 1px solid #f9004d;
+    margin-top: 10px;
+    }
+    .confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f00; /* Adjust confetti color as needed */
+    border-radius: 50%;
+    animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+</style>
+
+<body>
+    <script>
+    //     // Add an entry to the browser's history
+    //     var variable = "{{token}}"
+    //     if (variable!=""){
+    //     window.history.pushState(null, '', window.location.href);
+
+    //     // window.onpopstate = () => setTimeout(alert.bind(window, "Pop"), 0);
+
+
+    //         // Listen for the back button click event
+    //         window.addEventListener('popstate', function(event) {
+    //             // Redirect the user to the page before the update page
+    //             window.location.href = '/quest/' + variable + '/';
+    //             // window.location.href = '/showQuests/';
+
+    //     });
+
+    // }
+    // }
+            // window.onpageshow = function(event) {
+            //     // Check if the page is loaded from the bfcache (back-forward cache)
+            //     if (event.persisted) {
+            //         // Reload the page
+            //         window.location.reload(true);
+            //     }
+            // };
+
+            // var value = document.getElementById('flag').value;
+            // if ( "{{completed.hint.f1}}" != value) {
+            //     alert(value);
+            // } else {
+
+            // }
+
+
+
+    </script>
+
+<div class="hero">
+    <nav>
+        <h2 class="logo"><span>Q</span>CTF</h2>
+        <u1>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'profile' user.id %}">Profile</a></li>
+            <li><a href="{% url 'showQuests' %}">Challenges</a></li>
+            <li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>
+            <li><a href="#">Contact Us</a></li>
+            {% if user.is_superuser %}
+            <li><a href="{% url 'showProducts' %}">Admin</a></li>
+            {% endif %}
+        </u1>
+        <f1>
+            <a href="{% url 'logout' %}" class="button">Logout</a>
+        </f1>
+    </nav>
+</div>
+
+    <div class="bgv">
+        <div class="out">
+            <a href="{% url 'quest' hints.q1 %}" class="back" hidden>Back to Quest</a>
+            <h2 class="heading">Add Flag</h2>
+            <div class="kard">
+                {% if value == '1' %}
+                    {% for completed in completeds %}
+                        {% if hints.id == completed.hint.id %}
+                            {% if user.id == completed.user.id %}
+                                <div class="bask">{{completed.hint.f1}}</div>
+                                <button type="submit" class="finished">Flag Submitted</button>
+                                <div class="confetti-container">
+                                    <!-- Confetti elements will be added dynamically with JavaScript -->
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <!-- {{ form.as_p }} -->
+                        <div class="boxx">Q: {{ hints.h1 | linebreaks }}</div>
+                        {% if hints.image %}
+                            <img src="{{ hints.image.url }}" class ="pic">
+                        {% endif %}
+                        <div class="boxx">{{ form.answer }}</div>
+
+                        <button type="submit" class="touched">Submit</button>
+                        {% if error %}
+                            {% if error != '0' %}
+                                <div class="flag">{{ error }}</div>
+                            {% endif %}
+                        {% endif %}
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

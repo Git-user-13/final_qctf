@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Signup</title>
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="{% static 'app1/1542766.png' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?familt=Josefin+Sans:ital,wght@0,100:0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+body{
+    background-color: #101010;
+    
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+/* .shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    right: -30px;
+    bottom: -80px;
+} */
+form{
+    min-height: 520px;
+    margin-top: 5px;
+    width: 600px;
+    border-radius: 30px;
+    /* background-color: rgba(255,255,255,0.13); */
+    background: #191919;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 68%;
+    left: 50%;
+    /* border-radius: 10px; */
+    backdrop-filter: blur(10px);
+    /* border: 2px solid rgba(255,255,255,0.1); */
+    border: 2px solid #f9004d;
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+    margin-top: -20px;
+}
+
+form h4{
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 25px;
+    text-align: center;
+    color: red;
+}
+
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    /* width: 300px; */
+    /* background-color: rgba(255,255,255,0.07); */
+    background-color: #191919;
+    border-radius: 15px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    border: 2px solid #f9004d;
+}
+::placeholder{
+    color: #e5e5e5;
+}
+button{
+    margin-top: 30px;
+    width: 100%;
+    background-color: #f9004d;
+    color: white;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 2px solid #f9004d;
+    transition: 0.4s;
+    margin-bottom: 10px;
+}
+
+button:hover{
+    background-color: #f9004d;
+    transform: scale(1.05);
+}
+.social{
+  margin-top: 30px;
+  display: flex;
+}
+.social div{
+  background: red;
+  width: 150px;
+  border-radius: 3px;
+  padding: 5px 10px 10px 5px;
+  background-color: rgba(255,255,255,0.27);
+  color: #eaf0fb;
+  text-align: center;
+}
+.social div:hover{
+  background-color: rgba(255,255,255,0.47);
+}
+.social .fb{
+  margin-left: 25px;
+}
+.social i{
+  margin-right: 4px;
+}
+
+.logo{
+    color: white;
+    font-size:50px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-align: center;
+}
+
+span{
+    color: #f9004d;
+    font-size: 60px;
+}
+
+.outside{
+    margin-top: 65px;
+}
+
+ul{
+    margin-top: 8px;
+    margin-left: 12px;
+    margin-bottom: -20px;
+}
+
+/* .side{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+} */
+
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <div class="outside">
+        <h2 class="logo"><span>Q</span>CTF</h2>
+    </div>
+    <form action="" method="post">
+        {% csrf_token %} 
+        <h3>Signup</h3>
+
+        <div class="side">
+
+            <label for="first_name">First Name</label>
+            <input type="text" placeholder="first_name" name="first_name" id="first_name" required>
+
+            <label for="last_name">Last Name</label>
+            <input type="text" placeholder="last_name" name="last_name" id="last_name" required>
+
+        </div>
+
+        <div class="side">
+
+            <label for="username">Username</label>
+            <input type="text" placeholder="Username" name="username" id="username" required>
+
+            <label for="email">Email</label>
+            <input type="email" placeholder="Email" name="email" id="email" required>
+
+        </div>
+
+        <div class="side">
+
+            <label for="password1">Password</label>
+            <input type="password" placeholder="Password" id="password1" name="password1" required>
+            <!-- <ul>
+                <li>Should be atleast 8 characters long</li>
+                <li>Should contain a uppercase character</li>
+                <li>Should contain a special character</li>
+                <li>Should contain a number</li>
+            </ul> -->
+
+
+            <label for="password2">Confirm Password</label>
+            <input type="password" placeholder="Confirm Password" id="password2" name="password2" required>
+
+        </div>
+        <button type="submit">Signup</button>
+
+        <a href="{% url 'login' %}"> I already have a account</a>
+        <h4>{{ error }}</h4>
+    </form>
+
+</body>
+</html>

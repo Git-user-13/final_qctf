@@ -1,0 +1,128 @@
+
+<script>
+    // Disable the back button to prevent going back to the update page
+    window.onload = function() {
+        window.history.pushState(null, '', window.location.href);
+        window.onpopstate = function() {
+            window.history.pushState(null, '', window.location.href);
+        };
+    };
+    // Add an entry to the browser's history
+    // window.history.pushState(null, '', window.location.href);
+
+    // // Listen for the back button click event
+    // window.addEventListener('popstate', function(event) {
+    //     // Redirect the user to the page before the update page
+    //     window.location.href = '/showProducts/';
+    // });
+
+</script>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link href="{% static 'app1/style.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'app1/1542766.png' %}"/>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?familt=Josefin+Sans:ital,wght@0,100:0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style media="screen">
+
+    </style>
+    <title>QCTF</title>
+</head>
+<body>
+    <div class="hero">
+        <nav>
+            <h2 class="logo"><span>Q</span>CTF</h2>
+            <u1>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                {% if user.id %}
+                <li><a href="{% url 'profile' user.id %}">Profile</a></li>
+                {% endif %}
+                <li><a href="{% url 'showQuests' %}">Challenges</a></li>
+                <li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>
+                <li><a href="#">Contact Us</a></li>
+                {% if user.is_superuser %}
+                <li><a href="{% url 'showProducts' %}">Admin</a></li>
+                {% endif %}
+            </u1>
+            <f1>
+                {% if not user.is_authenticated %}
+                <a href="{% url 'login' %}" class="btn">Login</a>
+                <a href="{% url 'signup' %}" class="btn">Register</a>
+                {% else %}
+                <a href="{% url 'logout' %}" class="btn">Logout</a>
+                {% endif %}
+            </f1>
+        </nav>
+
+        <div class ="content">
+            <h4>Welcome to <e1>QCTF</e1>,</h4>
+            {% if user.is_authenticated %}
+            <h1>{{ user.username }}</h1>
+            {% else %}
+            <h1>User</h1>
+            {% endif %}
+            <a href="{% url 'showQuests' %}" class="cutton" >Let's Start</a>
+
+        </div>
+    </div>
+
+    <section class="about">
+        <div class="main">
+            <div class="about-text">
+                <h2>About <g1>CTF</g1></h2>
+                <p>Capture The Flags, or CTFs, are a kind of computer security competition. Teams of competitors (or just individuals) are pitted against each other in a test of computer security skill.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="service">
+        <div class="title">
+            <h2>Quests</h2>
+        </div>
+
+
+        <div class="box">
+            {% if products %}
+            {% for product in products %}
+            <div class="card">
+                <i class="fa-solid fa-flag"></i>
+                <h5>{{product.name}}</h5>
+                <div class="pra">
+                    <p>{{product.description}}</p>
+                    <p1 style="text-align: center;">
+                        <a class="button" href="{% url 'quest' product.pk  %}">Read More</a>
+                    </p1>
+                </div>
+            </div>
+            {% endfor %}
+                <a class="buttons" href="{% url 'showQuests' %}"><j class="fa-solid fa-arrow-right fa-beat"></j></a>
+                {% else %}
+                <h5>No Quests available</h5>
+                {% endif %}
+        </div>
+    </div>
+    <footer>
+        <p>A QBurst technologies initiative</p>
+        <p>7th Floor, Ganga Phase III Campus, Technopark, Trivandrum - 695583</p>
+        <div class="social">
+            <a href="https://www.facebook.com/QBurst"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/company/qburst"><i class="fa-brands fa-linkedin"></i></i></a>
+            <a href="https://www.youtube.com/c/qburst"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://twitter.com/QBurst"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.slideshare.net/qburst"><i class="fa-brands fa-slideshare"></i></a>
+        </div>
+    </footer>
+    <!-- CySec101{Q3lTZWMxMD} -->
+</body>
+</html>

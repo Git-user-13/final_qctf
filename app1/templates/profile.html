@@ -1,0 +1,392 @@
+<script>
+    // // Disable the back button to prevent going back to the update page
+    // window.onload = function() {
+    //     window.history.pushState(null, '', window.location.href);
+    //     window.onpopstate = function() {
+    //         window.history.pushState(null, '', window.location.href);
+    //     };
+    // };
+    // Add an entry to the browser's history
+    window.history.pushState(null, '', window.location.href);
+
+    // Listen for the back button click event
+    window.addEventListener('popstate', function(event) {
+        // Redirect the user to the page before the update page
+        window.location.href = '/index/';
+    });
+
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    {% load static %}
+    <link href="{% static 'app1/scene.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'app1/1542766.png' %}"/>
+    <!-- <link href="{% static 'app1/style.css' %}" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?familt=Josefin+Sans:ital,wght@0,100:0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <style media="screen">
+        .background{
+        height: auto;
+        min-height: 150vh;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        background-color: #101010 ;
+        /* justify-content: center;
+        align-items: center;
+        align-content: center; */
+        }
+        .detail{
+        color: #f9004d;
+        font-size: 50px;
+        /* width: 1130px;
+        margin: 30px auto; */
+        text-align: start;
+        margin-left: 20px;
+        font-weight: bold;
+        padding-bottom: 1%;
+        padding-top: 0.5%;
+        }
+        .heading{
+        color: white;
+        font-size: 30px;
+        /* width: 1130px;
+        margin: 30px auto; */
+        text-align: start;
+        margin-left: 20px;
+        padding-bottom: 1%;
+        padding-top: 0.5%;
+        }
+        spna{
+        color: white;
+        font-size: 30px;
+        /* font-weight: bold; */
+        /* width: 1130px;
+        margin: 30px auto; */
+        text-align: center;
+        padding-bottom: 1%;
+        padding-top: 0.5%;
+        }
+        spnas{
+        color: #f9004d;
+        font-size: 30px;
+        /* font-weight: bold; */
+        /* width: 1130px;
+        margin: 30px auto; */
+        text-align: center;
+        padding-bottom: 1%;
+        padding-top: 0.5%;
+        }
+        .background .petti{
+        /* position: relative;
+        width: 800px;
+        height: 440px;
+        background-color: #191919;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 2px solid #f9004d;
+        align-self: center;
+        margin-left: 300px; */
+        padding-top: 20px;
+        margin-left: 135px;
+        }
+        .con .curd .akam h24{
+        font-size: 20px;
+        color: #fff;
+        font-weight: 500;
+        letter-spacing: 1px;
+        /* text-align: center; */
+        display: -webkit-box;
+        -webkit-line-clamp: 8;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        padding-left: 5%;
+        /* line-height: 50px; */
+        padding-top: 15px;
+        content: "\A";
+        }
+
+
+.press{
+    /* background: #f9004d; */
+    height: 50px;
+    width: 200px;
+    /* display: block; */
+    display: block;
+    position: relative;
+    color:white;
+    background-color: #f9004d;
+    text-decoration: none;
+    /* border: 2px solid #f9004d; */
+    border: 2px solid #f9004d;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 30px;
+    margin-left: 5px;
+    transition: transform .4s;
+    text-align: center;
+    /* margin-top: 40px;
+    margin-left: 10px; */
+    margin: auto;
+    margin-left: 4%;
+    margin-top: 25px;
+    margin-right: 5px;
+    margin-bottom: 1%;
+}
+
+.press:hover{
+    /* background: #f9004d; */
+    background: #f9004d;
+    color: white;
+}
+
+
+h23{
+            font-size: 45px;
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 1px;
+            /* text-align: center; */
+            display: -webkit-box;
+            /* -webkit-line-clamp: 3;
+            overflow: hidden;
+            text-overflow: ellipsis; */
+            -webkit-box-orient: vertical;
+            padding-left: 0%;
+            padding-right: 0%;
+            /* line-height: 50px; */
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+            opacity: 100%;
+            margin-top: 20px;
+        }
+
+    .clik{
+    /* background-color: #f9004d; */
+    /* display: block; */
+    color:white;
+    text-decoration: none;
+    border: 2px solid #f9004d;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 30px;
+    margin-left: 45.5%;
+    transition: transform .4s;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 20px;
+}
+.clik:hover{
+    background-color: #f9004d;
+    color: #fff;
+}
+h20{
+            font-size: 20px;
+            color: #fff;
+            font-weight: 500;
+            letter-spacing: 1px;
+            /* text-align: center; */
+            display: -webkit-box;
+            /* -webkit-line-clamp: 3;
+            overflow: hidden;
+            text-overflow: ellipsis; */
+            -webkit-box-orient: vertical;
+            padding-left: 5%;
+            padding-right: 5%;
+            /* line-height: 50px; */
+            padding-top: 20px;
+            padding-bottom: 10px;
+            text-align: center;
+            opacity: 80%;
+        }
+    .con{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.con .curd{
+    position: relative;
+    width: 90%;
+    min-height: 120px;
+    background-color: #191919;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 15px;
+    border: 2px solid #f9004d;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.con .curd .akam{
+    width: 90%;
+}
+
+.con .curd .akam h7{
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 1px;
+    /* text-align: center; */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    padding-left: 5%;
+    /* line-height: 50px; */
+    padding-top: 15px;
+}
+
+.con .curd .akam h8{
+    font-size: 20px;
+    color: #fff;
+    /* line-height: 25px; */
+    font-weight: 500;
+    letter-spacing: 1px;
+    /* text-align: center; */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    padding-left: 5%;
+    z-index: 1;
+}
+
+.con .curd .puram{
+    flex-direction: row;
+    display: flex;
+}
+
+.con .curd .puram i{
+    font-size: 35px;
+    /* display: block; */
+    text-align: center;
+    margin: 25px 0px;
+    color: #f9004d;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 30px;
+}
+.con .curd .puram .vishym{
+    flex-direction: row;
+    display: flexbox;
+    width: 100%;
+}
+    </style>
+    <title>{{ user.first_name }}</title>
+</head>
+<body>
+    {% csrf_token %} 
+    <div class="hero">
+        <nav>
+            <h2 class="logo"><span>Q</span>CTF</h2>
+            <u1>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="">Profile</a></li>
+                <li><a href="{% url 'showQuests' %}">Challenges</a></li>
+                <li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>
+                <li><a href="#">Contact Us</a></li>
+                {% if user.is_superuser %}
+                <li><a href="{% url 'showProducts' %}">Admin</a></li>
+                {% endif %}
+            </u1>
+            <f1>
+                <a href="{% url 'logout' %}" class="button">Logout</a>
+            </f1>
+        </nav>
+    </div>
+    <div class="background">
+        <div class="petti">
+            <div class="detail">PERSONAL DETAILS</div>
+            <div class="heading">FIRST NAME:  <spna> &nbsp {{ user.first_name }}</spna></div>
+            <div class="heading">LAST NAME: <spna> &nbsp {{ user.last_name }}</spna></div>
+            <div class="heading">USERNAME: <spna> &nbsp {{ user.username }}</spna></div>
+            <div class="heading">SCORE: <spnas> &nbsp &nbsp &nbsp &nbsp &nbsp {{ score }}</spnas></div>
+        </div>
+        <!--<div class="quests">QUESTS</div>-->
+        <!--<div class="desp">-->
+        <!--    <h15></h15>-->
+        <!--</div>-->
+        <!--<div class="bg">-->
+        <!--    <div class="con">-->
+        <!--        {% for product in products %}-->
+        <!--                <div class="akam"></div>-->
+        <!--                <div class="curd">-->
+        <!--                    <div class="puram">-->
+        <!--                        <div class="akam">-->
+        <!--                            <h7>Quest: {{product.name}}</h7>-->
+                                    <!-- {% for number in numbers %}
+        <!--                            <h7>{{number}}{{forloop.parentloop.counter0}}</h7>-->
+        <!--                                {% if number == forloop.parentloop.counter0 %}-->
+        <!--                                    <h7>{{finish.number}}/{{array.number}} completed</h7>-->
+        <!--                                {% endif %}-->
+        <!--                            {% endfor %} -->-->
+        <!--                            {%for f in finish %}-->
+        <!--                                {% if forloop.counter0 == forloop.parentloop.counter0 %}-->
+        <!--                                    {% for a in array %}-->
+        <!--                                        {% if forloop.counter0 == forloop.parentloop.parentloop.counter0 %}-->
+        <!--                                            <h7>{{f}}/{{a}} completed</h7>-->
+        <!--                                        {% endif %}-->
+        <!--                                    {% endfor %}-->
+        <!--                                {% endif %}-->
+        <!--                            {% endfor %}-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--        {% endfor %}-->
+        <!--    </div>-->
+        <!--</div>-->
+        <div class="con">
+            {% for product in products %}
+                <h23>{{product.name}}</h23>
+                {% for hint in hints %}
+                    {% if hint.quest.id == product.id %}
+                            <div class="akam"></div>
+                            <div class="curd">
+                                <div class="puram">
+                                    <div class="vishym">
+                                        <div class="akam">
+                                            <h24><sub>Q: </sub>{{hint.h1}}</h24>
+                                        </div>
+                                        {% for attempt in attempts %}
+                                            {% if attempt.flag.id == hint.id %}
+                                                <h20>Attempts : {{ attempt.attempt }}</h20>
+                                            {% else %}
+                                                <h20>Attempts: 0</h20>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for completed in completeds %}
+                                            {% if hint.id == completed.hint.id %}
+                                            <div class="akam">
+                                                <h24><sub>F: </sub>{{hint.f1}}</h24>
+                                            </div>
+                                                <a class="press">Completed</a>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>
